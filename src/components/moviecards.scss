@@ -1,0 +1,29 @@
+.movie-cards{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    padding: 0 1em;
+    row-gap: 2em;
+    column-gap: 2em;
+    justify-content: stretch;
+    align-items: stretch;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+@media only screen and (max-width: 846px)and (min-width:587px)
+{
+    .movie-cards{
+        grid-template-columns: 1fr 1fr ;
+    }
+
+
+}
+@media only screen and (max-width: 586px)
+{
+    .movie-cards{
+        grid-template-columns: 1fr  ;
+    }
+
+
+}
