@@ -45,12 +45,12 @@ export default function MovieSummaryPage({ currentMovie }) {
         className="book-button"
         style={{
           padding: "1em 2em",
-          background: "lightgreen",
+          background: "pink",
           color: "Black",
           borderRadius: "50px",
         }}
       >
-        {buttonFormState?<div><h2>Go back</h2><Form handleFormData={handleFormData} formData={formData} /></div>:<div onClick={handleButtonFormState} style={{width:"100%",height:"100%"}} >Book Ticket</div>}
+        {buttonFormState?<div><h2 onClick={handleButtonFormState} style={{backgroundColor:"rgba(0,0,0,0.4)"}}>Go back</h2><Form handleFormData={handleFormData} formData={formData} /></div>:<div onClick={handleButtonFormState} style={{width:"100%",height:"100%"}} >Book Ticket</div>}
       </div>
     </div>
   );
