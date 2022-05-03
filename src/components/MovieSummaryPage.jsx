@@ -18,6 +18,26 @@ export default function MovieSummaryPage({ currentMovie }) {
                 movie_time:pv.movie_time
             }
         }
+        else if(name==='movie_date')
+        {
+          return {
+            movie_name:pv.movie_date,
+            movie_date:value,
+            movie_time:pv.movie_time
+        }
+
+
+        }
+        else if(name==='movie_time'){
+          return {
+            movie_name:pv.movie_date,
+            movie_date:pv.movie_date,
+            movie_time:value
+        }
+
+
+        }
+        // pv[name] = value; return pv;
     })
     // console.log(formData.movie_name)
   }
@@ -32,7 +52,8 @@ export default function MovieSummaryPage({ currentMovie }) {
 
   return (
     <div className="movie-summary">
-      <img src={image.original} alt="image" style={{ maxWidth: "50vh" }} />
+      <img src={image?image.original:""} alt="movie/show image" style={{ maxWidth: "50vh" ,minHeight:"30vh"}} />
+      {/* {image.orignal? <img src={image.original} alt="image" style={{ maxWidth: "50vh" }} />:<img src="" alt="movie image"/>} */}
       <div className="summary-body">
         <h1>{name}</h1>
         <div
@@ -43,14 +64,19 @@ export default function MovieSummaryPage({ currentMovie }) {
       <div
       
         className="book-button"
-        style={{
+        style={buttonFormState?{
           padding: "1em 2em",
+          background: "lightgreen",
+          color: "Black",
+          borderRadius: "50px",
+        }:{
+          padding: "",
           background: "pink",
           color: "Black",
           borderRadius: "50px",
         }}
       >
-        {buttonFormState?<div><h2 onClick={handleButtonFormState} style={{backgroundColor:"rgba(0,0,0,0.4)"}}>Go back</h2><Form handleFormData={handleFormData} formData={formData} /></div>:<div onClick={handleButtonFormState} style={{width:"100%",height:"100%"}} >Book Ticket</div>}
+        {buttonFormState?<div><h2 onClick={handleButtonFormState} style={{backgroundColor:"rgba(0,0,0,0.4)"}}>Go back</h2><Form handleFormData={handleFormData} formData={formData} /></div>:<div onClick={handleButtonFormState} style={{width:"100%",height:"100%",padding:"1em 2em"}} >Book Ticket</div>}
       </div>
     </div>
   );
